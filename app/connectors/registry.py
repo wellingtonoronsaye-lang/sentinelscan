@@ -20,7 +20,8 @@ class ConnectorRegistry:
             ioc_type: One of 'ip', 'domain', 'url', 'hash'
 
         Returns:
-            List of connector classes that support the IoC type
+            List of connector classes that support the IoC type.
+            Returns empty list for unknown or unsupported IoC types.
         """
         capability_map = {
             "ip": "supports_ip",
@@ -29,6 +30,7 @@ class ConnectorRegistry:
             "hash": "supports_hash",
         }
 
+        # Handle unknown IoC types gracefully by returning empty list
         attr = capability_map.get(ioc_type)
         if not attr:
             return []
