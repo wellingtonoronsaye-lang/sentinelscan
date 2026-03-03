@@ -16,8 +16,8 @@
 - [ ] 1.2.4 Write unit tests for registry filtering
 
 ### 1.3 Parallel Orchestrator
-- [ ] 1.3.1 Create app/scan/orchestrator.py module
-- [ ] 1.3.2 Implement run_connectors(ioc, ioc_type) function
+- [x] 1.3.1 Create app/scan/orchestrator.py module
+- [x] 1.3.2 Implement run_connectors(ioc, ioc_type) function
 - [ ] 1.3.3 Add connector instantiation error handling
 - [ ] 1.3.4 Integrate with ConnectorRegistry filtering
 - [ ] 1.3.5 Write unit tests for orchestrator
