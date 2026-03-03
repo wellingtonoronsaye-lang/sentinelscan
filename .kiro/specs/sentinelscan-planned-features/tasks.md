@@ -10,7 +10,7 @@
 - [ ] 1.1.5 Write unit tests for BaseConnector enhancements
 
 ### 1.2 Enhanced Connector Registry
-- [ ] 1.2.1 Implement get_connectors_for_type(ioc_type) static method
+- [x] 1.2.1 Implement get_connectors_for_type(ioc_type) static method
 - [ ] 1.2.2 Add capability flag filtering logic
 - [ ] 1.2.3 Handle unknown IoC types gracefully
 - [ ] 1.2.4 Write unit tests for registry filtering
