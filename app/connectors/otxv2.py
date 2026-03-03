@@ -42,7 +42,7 @@ class OTXConnector(BaseConnector):
             }
 
         except Exception as exc:
-            return self._error_result(ip, exc)
+            return self._error_result(ip, "ip", exc)
 
     @staticmethod
     def _verdict_from_pulses(count: int) -> tuple[str, float]:
