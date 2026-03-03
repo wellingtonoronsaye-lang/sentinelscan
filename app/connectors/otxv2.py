@@ -7,6 +7,10 @@ from app.connectors.base import BaseConnector
 
 class OTXConnector(BaseConnector):
     name = "OTXv2"
+    supports_ip = True
+    supports_domain = False
+    supports_url = False
+    supports_hash = False
 
     def __init__(self):
         api_key = os.getenv("OTX_API_KEY", "")

@@ -6,7 +6,7 @@
 - [x] 1.1.1 Add capability flags (supports_ip, supports_domain, supports_url, supports_hash) to BaseConnector
 - [x] 1.1.2 Add abstract methods: scan_domain(), scan_url(), scan_hash()
 - [x] 1.1.3 Update _error_result() to accept ioc_type parameter
-- [ ] 1.1.4 Update existing OTXv2 connector to set capability flags
+- [x] 1.1.4 Update existing OTXv2 connector to set capability flags
 - [ ] 1.1.5 Write unit tests for BaseConnector enhancements
 
 ### 1.2 Enhanced Connector Registry
