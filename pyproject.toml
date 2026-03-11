@@ -12,5 +12,6 @@ dependencies = [
     "pytest>=9.0.2",
     "python-dotenv>=1.2.2",
     "requests>=2.32.5",
+    "ruff>=0.15.5",
     "werkzeug>=3.1.6",
 ]
