@@ -11,3 +11,6 @@ class VirustotalConnector(BaseConnector):
 
     def scan_url(self, url: str) -> dict:
         pass
+
+    def scan_hash(felf, hash: str) -> dict:
+        pass
