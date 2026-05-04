@@ -1,5 +1,6 @@
 from app.connectors.base import BaseConnector
 
+
 class VirustotalConnector(BaseConnector):
     name = "Virustotal-Connector"
 
@@ -12,5 +13,5 @@ class VirustotalConnector(BaseConnector):
     def scan_url(self, url: str) -> dict:
         pass
 
-    def scan_hash(felf, hash: str) -> dict:
+    def scan_hash(self, file_hash: str) -> dict:
         pass

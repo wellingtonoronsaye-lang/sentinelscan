@@ -1,11 +1,43 @@
+"""Registry for enabled CTI provider plugins."""
+
+from __future__ import annotations
+
+import os
 from typing import List, Type
+
 from app.connectors.base import BaseConnector
 from app.connectors.otxv2 import OTXConnector
+from app.plugins.mock_provider import MockProvider
 
-# Add new connectors here — they auto-run in parallel
-CONNECTORS = [
-    OTXConnector,
-]
+
+AVAILABLE_CONNECTORS = {
+    "mock": MockProvider,
+    "otx": OTXConnector,
+    "otxv2": OTXConnector,
+}
+
+
+def _enabled_connector_names() -> list[str]:
+    configured = os.getenv("ENABLED_CTI_PROVIDERS", "mock")
+    return [
+        name.strip().lower()
+        for name in configured.split(",")
+        if name.strip()
+    ]
+
+
+def get_enabled_connectors() -> list[Type[BaseConnector]]:
+    """Return enabled connector classes in configured order."""
+    connectors: list[Type[BaseConnector]] = []
+    for name in _enabled_connector_names():
+        connector = AVAILABLE_CONNECTORS.get(name)
+        if connector and connector not in connectors:
+            connectors.append(connector)
+    return connectors
+
+
+# Backwards-compatible module constant for old imports.
+CONNECTORS = get_enabled_connectors()
 
 
 class ConnectorRegistry:
@@ -30,12 +62,11 @@ class ConnectorRegistry:
             "hash": "supports_hash",
         }
 
-        # Handle unknown IoC types gracefully by returning empty list
         attr = capability_map.get(ioc_type)
         if not attr:
             return []
 
         return [
-            connector for connector in CONNECTORS
+            connector for connector in get_enabled_connectors()
             if getattr(connector, attr, False)
         ]

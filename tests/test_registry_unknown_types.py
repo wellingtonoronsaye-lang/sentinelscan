@@ -1,6 +1,5 @@
 """Tests for ConnectorRegistry handling of unknown IoC types."""
 
-import pytest
 from app.connectors.registry import ConnectorRegistry
 
 

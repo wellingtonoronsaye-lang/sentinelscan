@@ -4,6 +4,7 @@ import concurrent.futures
 from typing import List
 
 from app.connectors.registry import ConnectorRegistry
+from app.cti.verdicts import normalize_verdict
 
 
 class ParallelOrchestrator:
@@ -44,9 +45,11 @@ class ParallelOrchestrator:
             try:
                 instance = connector_cls()
                 scan_method = getattr(instance, f"scan_{ioc_type}")
-                return scan_method(ioc)
+                result = scan_method(ioc)
+                result["verdict"] = normalize_verdict(result.get("verdict"))
+                return result
             except Exception as exc:
-                return connector_cls()._error_result(ioc, ioc_type, exc)
+                return connector_cls.error_result(ioc, ioc_type, exc)
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(connectors)) as pool:
             futures = [pool.submit(_scan, cls) for cls in connectors]

@@ -11,6 +11,19 @@ scan_request = api.model("ScanRequest", {
     )
 })
 
+generic_scan_request = api.model("GenericScanRequest", {
+    "ioc": fields.String(
+        required=True,
+        description="Indicator value to scan",
+        example="8.8.8.8"
+    ),
+    "ioc_type": fields.String(
+        required=True,
+        description="ip | domain | url | hash",
+        example="ip"
+    ),
+})
+
 source_result = api.model("SourceResult", {
     "source":     fields.String(description="Connector name"),
     "ioc":        fields.String(description="Scanned value"),
@@ -22,8 +35,9 @@ source_result = api.model("SourceResult", {
 })
 
 scan_response = api.model("ScanResponse", {
+    "scan_id":          fields.Integer(description="SQLite scan id"),
     "ioc":             fields.String(description="Scanned value"),
-    "ioc_type":        fields.String(description="ip"),
+    "ioc_type":        fields.String(description="ip | domain | url | hash"),
     "overall_verdict": fields.String(description="Aggregated verdict across all sources"),
     "sources_scanned": fields.Integer(description="Number of sources queried"),
     "results":         fields.List(fields.Nested(source_result)),
