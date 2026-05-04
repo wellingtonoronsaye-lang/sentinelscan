@@ -9,6 +9,7 @@ class Config:
     SECRET_KEY = os.getenv("FLASK_SECRET_KEY", "dev-secret")
     OTX_API_KEY = os.getenv("OTX_API_KEY", "")
     OTX_RATE_LIMIT = os.getenv("OTX_RATE_LIMIT", "10")
+    VT_API_KEY = os.getenv("VT_API_KEY", "")
     SENTINEL_DB_PATH = os.getenv(
         "SENTINEL_DB_PATH",
         str(BASE_DIR / "instance" / "sentinel_scan.sqlite3"),

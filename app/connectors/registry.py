@@ -7,6 +7,7 @@ from typing import List, Type
 
 from app.connectors.base import BaseConnector
 from app.connectors.otxv2 import OTXConnector
+from app.connectors.virustotal import VirustotalConnector
 from app.plugins.mock_provider import MockProvider
 
 
@@ -14,6 +15,8 @@ AVAILABLE_CONNECTORS = {
     "mock": MockProvider,
     "otx": OTXConnector,
     "otxv2": OTXConnector,
+    "virustotal": VirustotalConnector,
+    "vt": VirustotalConnector,
 }
 
 
