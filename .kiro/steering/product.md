@@ -18,6 +18,7 @@ Aggregation always promotes to the highest severity seen across providers.
 | `mock` | `MockProvider` | Deterministic dev provider; no API key needed |
 | `otx` / `otxv2` | `OTXConnector` | AlienVault OTX v2; requires `OTX_API_KEY` |
 | `virustotal` / `vt` | `VirustotalConnector` | VirusTotal v3; requires `VT_API_KEY` |
+|`urlscan.io`|`URLScanConnector`|Requires `URL_SCAN_API_KEY`|
 
 Providers are enabled via the `ENABLED_CTI_PROVIDERS` env var (comma-separated). Default is `mock`.
 

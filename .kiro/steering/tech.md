@@ -28,6 +28,7 @@ SENTINEL_DB_PATH=instance/sentinel_scan.sqlite3
 OTX_API_KEY=
 OTX_RATE_LIMIT=10
 VT_API_KEY=
+URL_SCAN_API_KEY=
 ```
 
 Flask dev settings live in `.flaskenv` (`FLASK_APP=run.py`, `FLASK_ENV=debug`, `FLASK_PORT=5000`).
